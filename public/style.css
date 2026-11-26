@@ -77,6 +77,12 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
 
 /* Local display type keeps the sleeve and masthead consistent when opened offline. */
 @font-face {
+  font-family: "URW Gothic";
+  src: url("assets/fonts/URWGothic-Demi.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
   font-family: "Bookman";
   src: url("assets/fonts/URWBookman-Demi.otf") format("opentype");
   font-weight: 600;
@@ -98,7 +104,7 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
 
 :root {
   --album-type: "Bookman", Georgia, serif;
-  --label-type: "Courier New", monospace;
+  --label-type: "URW Gothic", "Century Gothic", Arial, sans-serif;
   --hero-paper: #f2e4cb;
   --hero-ink: #3c1b21;
   --hero-secondary: #5b4441;
@@ -156,7 +162,8 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
 .hero.grain::before { opacity: .18; mix-blend-mode: multiply; }
 .hero-wrap { padding-block: 26px 19px; }
 .hero-top, .hero-bottom { border-color: var(--hero-rule); font-family: var(--label-type); }
-.hero-top .eyebrow { letter-spacing: .11em; }
+.hero-top .eyebrow { font-weight: 600; letter-spacing: .065em; }
+.hero-bottom { font-size: .8rem; font-weight: 600; letter-spacing: .035em; }
 .hero-location span, .hero-bottom a:hover { color: var(--hero-accent); }
 .small-dot { background: var(--hero-accent); animation: none; }
 .hero-grid {
@@ -166,9 +173,8 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
   padding-block: clamp(46px,5vw,78px);
 }
 .hero-intro, .album figcaption, .sleeve-imprint, .sleeve-title small {
-  font: 700 .71rem/2 var(--label-type);
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font: 600 .91rem/1.35 var(--label-type);
+  letter-spacing: .035em;
 }
 .hero-intro { display: flex; align-items: center; gap: 10px; color: var(--hero-accent); margin: 0 0 17px; }
 .side-letter {
@@ -231,6 +237,9 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
   box-shadow: 2px 2px 0 #8e7151, 4px 4px 0 #513b2e, 3px 15px 18px -6px #28120e66;
   container-type: inline-size;
 }
+/* Pin the slightly enlarged cover photograph at the bottom to lift the face. */
+.album-cover { overflow: hidden; }
+.album-cover > img { transform: scale(1.08); transform-origin: 55% 100%; }
 .album-sleeve img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .sleeve-print {
   position: absolute;
@@ -252,9 +261,9 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
   background: url("assets/grain.png");
   opacity: .29;
 }
-.sleeve-imprint { display: flex; justify-content: space-between; align-items: center; font-size: clamp(8px,2.9cqw,13px); text-shadow: 0 1px 2px #30150f; }
+.sleeve-imprint { display: flex; justify-content: space-between; align-items: center; font-size: clamp(10px,3.4cqw,15px); text-shadow: 0 1px 2px #30150f; }
 .stereo { border: 1px solid currentColor; border-radius: 50%; padding: .25em .9em; line-height: 1; }
-.sleeve-title small { display: block; font-size: clamp(8px,2.7cqw,12px); letter-spacing: .22em; }
+.sleeve-title small { display: block; font-size: clamp(13px,4.7cqw,21px); letter-spacing: .02em; }
 .sleeve-title > span { display: block; margin: .08em 0 0; font: italic 400 18.4cqw/1 "Z003", Georgia, serif; letter-spacing: -.045em; white-space: nowrap; }
 .album figcaption {
   display: flex;
@@ -263,7 +272,7 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
   gap: 12px;
   margin-top: 22px;
   color: var(--hero-secondary);
-  font-size: .65rem;
+  font-size: .875rem;
 }
 .album figcaption::before { content: ""; height: 1px; background: var(--hero-rule); flex: 1; order: 1; }
 .album figcaption span:last-child { order: 2; }
@@ -285,7 +294,7 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
   .hero .role { margin-top: 18px; }
   .hero-description { font-size: .95rem; margin-bottom: 18px; }
   .album { width: 96%; }
-  .album figcaption { font-size: .59rem; margin-top: 17px; }
+  .album figcaption { font-size: .8rem; gap: 7px; margin-top: 17px; }
   .nav-record { width: 34px; }
 }
 
@@ -316,8 +325,8 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
   gap: 5%;
 }
 .insert-folio {
-  font: 700 clamp(8px, 2.6cqw, 13px)/1 var(--label-type);
-  letter-spacing: .13em;
+  font: 600 clamp(10px, 3.1cqw, 14px)/1.25 var(--label-type);
+  letter-spacing: .055em;
   text-transform: uppercase;
 }
 .album-sleeve .insert-photo {
@@ -379,8 +388,28 @@ h3, .feature-copy h3, .project-body h3, .other-grid h3, .about-main h3, .educati
   color: var(--hero-accent);
   font: inherit;
   letter-spacing: inherit;
-  text-transform: uppercase;
+  text-transform: none;
   white-space: nowrap;
 }
 .album-next:hover { color: var(--hero-ink); border-color: currentColor; }
 .album-next:focus-visible { outline-color: var(--hero-accent); }
+
+/* The preview is a finished composition and needs no extra frame. */
+.feature-art { padding: 0; background: #c5d4ca; }
+.feature-art img { display: block; width: 100%; height: auto; border-radius: 0; }
+/* Vinyl separators for the scrolling skills strip */
+.ticker .ticker-track span[aria-hidden="true"] {
+  display: inline-block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  border: 1px solid #cfb991;
+  border-radius: 50%;
+  font-size: 0;
+  line-height: 0;
+  background:
+    radial-gradient(circle, #251819 0 9%, var(--accent, #f4ae65) 10% 32%, transparent 33%),
+    conic-gradient(from 20deg, transparent 18%, #fff1ce50 25%, transparent 32% 68%, #fff1ce50 75%, transparent 82%),
+    repeating-radial-gradient(circle, #231e20 0 1px, #514446 1.5px 2px);
+}

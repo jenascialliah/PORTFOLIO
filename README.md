@@ -35,7 +35,7 @@ Microsoft guide: https://learn.microsoft.com/azure/static-web-apps/get-started-p
 - Do not publish the original private CV or application credentials.
 
 ## Version 2
-The portrait is a compact editorial profile card. Theme swatches choose sage, black or plum; Auto cycles every nine seconds, pauses in hidden tabs and respects reduced motion. Manual choices persist in local storage. Cargonnect artwork uses cropped screenshots from the supplied user manual, printed pages 16 and 51 (PDF pages 21 and 56); administrative account header omitted. The full manual is intentionally not published. Confirm permission to share the screenshots before public deployment.
+The portrait is a compact editorial profile card. Theme swatches choose sage, black or plum; Auto cycles every nine seconds, pauses in hidden tabs and respects reduced motion. Manual choices persist in local storage. The Cargonnect preview pairs the public landing screen with a detail of the Metro Manila disruption map. Confirm permission to share the screenshots before public deployment.
 
 ## V3 retro edition
 Burgundy, midnight and espresso themes; animated vinyl, ticker and portrait. Use the pause control to stop decorative motion and automatic theme cycling. Existing Azure settings are unchanged.
